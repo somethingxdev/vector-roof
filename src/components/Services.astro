@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+
+const servicesImages = [
+  {
+    image: import('../assets/services/membran.png'),
+    imageHover: import('../assets/services/membran-hover.png'),
+    title: 'Кровля из ПВХ мембраны',
+  },
+  {
+    image: import('../assets/services/pitched.png'),
+    imageHover: import('../assets/services/pitched-hover.png'),
+    title: 'скатная кровля',
+  },
+  {
+    image: import('../assets/services/clad.png'),
+    imageHover: import('../assets/services/clad-hover.png'),
+    title: 'наплавляемая кровля',
+  },
+  {
+    image: import('../assets/services/facade.png'),
+    imageHover: import('../assets/services/facade-hover.png'),
+    title: 'монтаж фасадных систем',
+  },
+  {
+    image: import('../assets/services/waterproofing.png'),
+    imageHover: import('../assets/services/waterproofing-hover.png'),
+    title: 'инженерная гидроизоляция',
+  },
+  {
+    image: import('../assets/services/metal.png'),
+    imageHover: import('../assets/services/metal-hover.png'),
+    title: 'монтаж металлоконструкций',
+  },
+];
+---
+
+<section class="container pb-14 md:pb-28" id="services">
+  <div class="flex-stack items-start sm:items-center mb-5 md:mb-[50px] gap-2">
+    <h2 class="section-title">Строительные услуги</h2>
+    <a href="#" class="text-[#9EA1AB] font-semibold text-nowrap shrink-0">[ Услуги ]</a>
+  </div>
+  <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+    {
+      servicesImages.map((item) => (
+        <div class="relative group drop-shadow-xl">
+          <div class="rounded-lg">
+            <Image src={item.image} class="group-hover:opacity-0 transition-all" alt="membran" />
+            <Image src={item.imageHover} class="opacity-0 absolute top-0 left-0 w-full h-full group-hover:opacity-100 transition-all" alt="membran" />
+            <div class="absolute bottom-5 left-5 flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
+                <path d="M6.26538 1L10.7835 7.02066L6.26538 13.0413" stroke="#F43333" stroke-width="2" />
+                <path d="M11.7732 1L16.2913 7.02066L11.7732 13.0413" stroke="#F43333" stroke-width="2" />
+              </svg>
+              <h3 class="text-white font-extrabold uppercase group-hover:text-[#202228]">{item.title}</h3>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

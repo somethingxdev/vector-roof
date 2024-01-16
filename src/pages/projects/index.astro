@@ -1,0 +1,104 @@
+---
+import { Breadcrumbs } from 'astro-breadcrumbs';
+import 'astro-breadcrumbs/breadcrumbs.css';
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import Pricing from '../../components/Pricing.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const customCrumbs = [
+  {
+    text: 'Главная',
+    href: '/',
+  },
+  {
+    text: 'Выполненные проекты',
+    href: '/projects',
+  },
+];
+
+const navItems = [
+  { url: '/', title: 'наплавляемая кровля' },
+  { url: '/', title: 'Кровля из ПВХ мембраны' },
+  { url: '/', title: 'Монтаж металлоконструкций' },
+  { url: '/', title: 'Скатная кровля' },
+  { url: '/', title: 'Монтаж фасадных систем' },
+  { url: '/', title: 'Инженерная гидроизоляция' },
+];
+---
+
+<Layout title="title">
+  <div class="bg-[#F0F0F0]">
+    <div class="container pt-9 pb-14 sm:pb-32">
+      <div class="mb-16 sm:mb-24">
+        <Breadcrumbs crumbs={customCrumbs} />
+      </div>
+      <div class="flex-stack items-start mb-14 md:mb-24">
+        <div>
+          <h2 class="section-title mb-3">Выполненные проекты</h2>
+          <h3 class="text-xl sm:text-3xl uppercase text-[#56585E] font-extrabold flex items-start gap-3">
+            <Icon name="marks" class="size-8" />
+             Наплавляемая кровля
+          </h3>
+        </div>
+        <a href="#" class="text-[#9EA1AB] font-semibold text-nowrap shrink-0 hidden md:block text-end">[ Работы по всей <br /> России ]</a>
+      </div>
+      <nav class="mb-10 sm:mb-14">
+        <ul class="grid grid-cols-2 gap-2 items-stretch sm:flex sm:gap-5 flex-wrap">
+          {
+            navItems.map((item) => (
+              <li>
+                <a
+                  href="#"
+                  class="py-2 px-3 sm:py-5 sm:px-7 h-full flex items-center place-items-start  text-[12px] sm:text-base bg-white rounded font-bold uppercase hover:bg-primary hover:text-white transition-colors">
+                  {item.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-5 sm:gap-y-10">
+        <li class="flex flex-col items-center bg-white gap-5 p-5 rounded-lg">
+          <Image src={import('../../assets/projects/1.png')} alt="ЖК Светлогорский" />
+          <span class="font-bold uppercase text-center">ЖК Светлогорский</span>
+          <p class="text-[#848898] text-center">Красноярск, пер Светлогорский, д 12</p>
+          <a href="#" class="button text-[#1D1D21] hover:bg-primary mt-auto bg-[#F4F3F4] hover:text-white transition-colors">подробнее</a>
+        </li>
+        <li class="flex flex-col items-center bg-white gap-5 p-5 rounded-lg">
+          <Image src={import('../../assets/projects/2.png')} alt="ЖК Светлогорский" />
+          <span class="font-bold uppercase text-center">Красноярский краевой онкологический диспансер</span>
+          <p class="text-[#848898] text-center">Красноярск, ул 1-я Смоленская, д 16,</p>
+          <a href="#" class="button text-[#1D1D21] hover:bg-primary mt-auto bg-[#F4F3F4] hover:text-white transition-colors">подробнее</a>
+        </li>
+
+        <li class="flex flex-col items-center bg-white gap-5 p-5 rounded-lg">
+          <Image src={import('../../assets/projects/1.png')} alt="ЖК Светлогорский" />
+          <span class="font-bold uppercase text-center">Академгородок д. 4, секция 6</span>
+          <p class="text-[#848898] text-center">Красноярск, ул Академгородок, д 54</p>
+          <a href="#" class="button text-[#1D1D21] hover:bg-primary mt-auto bg-[#F4F3F4] hover:text-white transition-colors">подробнее</a>
+        </li>
+        <li class="flex flex-col items-center bg-white gap-5 p-5 rounded-lg">
+          <Image src={import('../../assets/projects/2.png')} alt="ЖК Светлогорский" />
+          <span class="font-bold text-center uppercase">ЖК Светлогорский</span>
+          <p class="text-[#848898] text-center">Красноярск, пер Светлогорский, д 12</p>
+          <a href="#" class="button text-[#1D1D21] hover:bg-primary mt-auto bg-[#F4F3F4] hover:text-white transition-colors">подробнее</a>
+        </li>
+        <li class="flex flex-col items-center bg-white gap-5 p-5 rounded-lg">
+          <Image src={import('../../assets/projects/3.png')} alt="ЖК Светлогорский" />
+          <span class="font-bold text-center uppercase">Красноярский краевой онкологический диспансер</span>
+          <p class="text-[#848898] text-center">Красноярск, ул 1-я Смоленская, д 16,</p>
+          <a href="#" class="button text-[#1D1D21] hover:bg-primary mt-auto bg-[#F4F3F4] hover:text-white transition-colors">подробнее</a>
+        </li>
+        <li class="flex flex-col items-center bg-white gap-5 p-5 rounded-lg">
+          <Image src={import('../../assets/projects/1.png')} alt="ЖК Светлогорский" />
+          <span class="font-bold uppercase text-center">Академгородок д. 4, секция 6</span>
+          <p class="text-[#848898] text-center">Красноярск, ул Академгородок, д 54</p>
+          <a href="#" class="button text-[#1D1D21] hover:bg-primary mt-auto bg-[#F4F3F4] hover:text-white transition-colors">подробнее</a>
+        </li>
+      </ul>
+    </div>
+    <Pricing />
+  </div>
+</Layout>

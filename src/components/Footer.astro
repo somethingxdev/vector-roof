@@ -1,0 +1,68 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+---
+
+<footer class="bg-[#2E3037] pt-12 md:pt-24">
+  <div class="container">
+    <div class="flex flex-col md:flex-row items-start justify-between gap-5 pb-10 md:pb-20 border-b border-[#474951]">
+      <a href="/" class="flex shrink-0 items-center gap-3 z-[51] mb-10 md:mb-0 relative">
+        <Image src={import('../assets/logo.png')} quality={100} class="size-9" alt="logo" />
+        <span class="text-sm text-[#F9F9F9] sm:text-base font-extrabold leading-5 uppercase tracking-wide">Строительные <br /> системы</span>
+      </a>
+      <div class="md:self-center mb-10 md:mb-0">
+        <h3 class="text-white mb-3 md:mb-6 text-sm">Услуги</h3>
+        <ul class="grid md:grid-cols-2 mb-7 md:mb-10 gap-x-10 gap-y-3 text-[#A6B1B9] text-sm">
+          <li><a href="#" class="hover:text-primary transition-colors">Водосточная система</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors">Монтаж парапетов кровли</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors">Направляемая кровля</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors">Кровля из ПВХ мембраны</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors">Скатная кровля</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors">Монтаж металлоконструкций</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors">Гидроизоляция</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors">Монтаж фасадных систем</a></li>
+        </ul>
+        <div class="flex gap-16 text-[#F9F9F9] text-sm">
+          <a href="/news" class="hover:text-primary transition-colors">Новости</a>
+          <a href="/projects" class="hover:text-primary transition-colors">Проекты</a>
+          <a href="/company" class="hover:text-primary transition-colors text-nowrap">О компании</a>
+        </div>
+      </div>
+
+      <ul class="flex flex-wrap md:flex-col md:flex-nowrap gap-5 text-[#F9F9F9] text-sm">
+        <li>
+          <a href="tel:89029423732" class="flex items-center gap-2 hover:text-primary transition-colors">
+            <Icon name="phone" class="size-6" />
+             +7 (902) 942-37-32
+          </a>
+        </li>
+        <li>
+          <a href="tel:89029423732" class="flex items-center gap-2 hover:text-primary transition-colors">
+            <Icon name="phone" class="size-6" />
+             +7 (902) 942-37-32
+          </a>
+        </li>
+        <li>
+          <a href="mailto:s.sistem.a@mail.ru" class="flex items-center gap-2 hover:text-primary transition-colors">
+            <Icon name="email" class="size-6" />
+             s.sistem.a@mail.ru
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://yandex.ru/maps/62/krasnoyarsk/house/ulitsa_musorgskogo_3/bUsYfwVnT0YCQFtvfXV5cHVmbA==/?ll=92.927635%2C55.981958&z=17.08"
+            target="_blank"
+            class="flex items-center gap-2 hover:text-primary transition-colors">
+            <Icon name="map" class="size-6" />
+             г. Красноярск, Мусоргского, 3, оф. 302
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="py-8 flex-stack flex-col md:flex-row items-start gap-5 text-[#9294A2] text-[12px]">
+      <a href="#">Политика конфиденциальности</a>
+      <p>© «Строительные системы», Кровельные и гидроизоляционные работы в Красноярском крае</p>
+      <span>2024</span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,24 @@
+---
+import { getImage, Image } from 'astro:assets';
+import myBackground from '../assets/hero-background.png';
+const optimizedBackgroundPC = await getImage({ src: myBackground, format: 'webp', quality: 100 });
+---
+
+<div
+  class="wrapper bg-no-repeat h-[700px] sm:h-[800] bg-cover xl:bg-contain bg-center mb-12"
+  style={`background-image: url(${optimizedBackgroundPC.src});`}>
+  <div class="container pb-[250px]">
+    <div class="flex justify-center items-center gap-3 pt-12 pb-12 md:pb-14">
+      <Image src={import('../assets/hero-icon.svg')} class="size-20" quality={100} alt="hero" />
+      <p class="text-[#3B3C40] font-bold max-w-[190px] text-sm">Являемся Корпоративным подрядчиком Технониколь</p>
+    </div>
+    <h1 class="text-3xl md:text-5xl text-[#202228] text-center uppercase font-extrabold max-w-[1024px] mx-auto mb-5">
+      Профессиональная гидроизоляция.
+      <br /> Монтаж и ремонт кровельных систем
+    </h1>
+    <p class="text-[#484E5B] text-bold text-lg text-center mb-12">Все виды работ с соблюдением СНиП и ГОСТ с гарантией до 15 лет</p>
+    <div class="text-center">
+      <a href="#" class="button">начать работу</a>
+    </div>
+  </div>
+</div>

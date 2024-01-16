@@ -1,0 +1,114 @@
+---
+import { Image } from 'astro:assets';
+const partners = [
+  { url: import('../assets/partners/danone.png'), alt: 'danone' },
+  { url: import('../assets/partners/syberia.png'), alt: 'Сибирская генерирующая компания' },
+  { url: import('../assets/partners/rusal.png'), alt: 'rusal' },
+  { url: import('../assets/partners/smsity.png'), alt: 'см.сити' },
+  { url: import('../assets/partners/cult.png'), alt: 'культбытстрой' },
+  { url: import('../assets/partners/sbis.svg'), alt: 'сбис' },
+  { url: import('../assets/partners/trans.png'), alt: 'трансвуд сервис' },
+  { url: import('../assets/partners/omega.png'), alt: 'омега' },
+];
+
+const partnersReviews = [
+  { url: import('../assets/partners/reviews/1.png') },
+  { url: import('../assets/partners/reviews/2.png') },
+  { url: import('../assets/partners/reviews/3.png') },
+  { url: import('../assets/partners/reviews/4.png') },
+  { url: import('../assets/partners/reviews/5.png') },
+];
+---
+
+<div class="bg-[#F0F0F0] py-10 md:py-32">
+  <div class="container">
+    <div class="flex-stack flex-col md:flex-row items-start sm:items-center mb-5 md:mb-[50px] gap-5" id="clients">
+      <p class="font-bold text-lg max-w-[580px] flex items-baseline gap-4">
+        <svg width="34" height="14" viewBox="0 0 34 14" class="shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M33.8359 0H25.652L13.5278 13.9067H21.7116L33.8359 0Z" fill="#F43333"></path>
+          <path d="M20.3047 0H12.1208L-0.00349808 13.9067H8.1804L20.3047 0Z" fill="#F43333"></path>
+        </svg>
+        Обращаясь к нам вы получаете качественные услуги в строго оговорённый срок и по приемлемой для вас цене
+      </p>
+      <a href="#" class="-order-1 self-end md:self-center md:order-1 text-[#9EA1AB] font-semibold text-nowrap">[ Некоторые наши клиенты ]</a>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-5 sm:bg-white sm:py-5 sm:px-7 rounded-lg mb-14 md:mb-32">
+      {
+        partners.map((partner) => (
+          <div class="border bg-white sm:bg-transparent border-[#E1E3E6] p-3 sm:p-5 rounded-lg grid place-items-center place-content-center">
+            <Image src={partner.url} alt={partner.alt} quality={100} class="h-[50px] sm:h-auto sm:max-w-[130px] object-contain" />
+          </div>
+        ))
+      }
+    </div>
+    <h2 class="section-title text-center sm:text-start mb-5 sm:mb-10">Отзывы Партнеров</h2>
+    <div class="embla -ml-[70px] relative">
+      <button class="embla__prev z-10 shrink-0 rounded-full bg-primary size-11 grid place-items-start place-content-center">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 7L7.53516 1.46484M2 7L7.53516 12.5352M2 7H13.5" stroke="white" stroke-width="2"></path>
+        </svg>
+      </button>
+      <div class="embla__viewport max-w-[1200px]">
+        <div class="embla__container">
+          {
+            partnersReviews.map((review) => (
+              <div class="embla__slide">
+                <Image src={review.url} alt="Отзыв" class="w-full" quality={90} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <button class="hidden embla__next z-10 shrink-0 rounded-full bg-primary size-11 sm:grid place-items-start place-content-center">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 7L6.46484 1.46484M12 7L6.46484 12.5352M12 7H0.5" stroke="white" stroke-width="2"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .embla {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  .embla__viewport {
+    overflow: hidden;
+  }
+  .embla__container {
+    display: flex;
+    gap: 20px;
+  }
+  .embla__slide {
+    flex: 0 0 32%;
+    min-width: 0;
+  }
+
+  @media screen and (max-width: 1140px) {
+    .embla__slide {
+      flex: 0 0 50%;
+    }
+  }
+  @media screen and (max-width: 640px) {
+    .embla__slide {
+      flex: 0 0 80%;
+    }
+  }
+</style>
+
+<script>
+  import EmblaCarousel from 'embla-carousel';
+  const rootNode = document.querySelector('.embla') as HTMLElement;
+  const viewportNode = rootNode.querySelector('.embla__viewport') as HTMLElement;
+
+  // Grab button nodes
+  const prevButtonNode = rootNode.querySelector('.embla__prev') as HTMLButtonElement;
+  const nextButtonNode = rootNode.querySelector('.embla__next') as HTMLButtonElement;
+
+  const embla = EmblaCarousel(viewportNode);
+
+  prevButtonNode.addEventListener('click', embla.scrollPrev, false);
+  nextButtonNode.addEventListener('click', embla.scrollNext, false);
+</script>

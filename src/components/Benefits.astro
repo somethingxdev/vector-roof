@@ -1,0 +1,99 @@
+---
+import { Image } from 'astro:assets';
+const benefitsItems = [
+  {
+    num: '1',
+    title: 'соблюдение сроков',
+    text: 'Строго придерживаемся оговоренных сроков, соблюдая обязательства по договору, что придает ясность и спокойствие заказчику',
+  },
+  {
+    num: '2',
+    title: 'Экономичность',
+    text: 'Прямое сотрудничество с ведущими производителями высококачественных материалов для кровли и теплоизоляции позволяет предлагать лучшие цены на рынке',
+  },
+  {
+    title: '',
+    text: '',
+    visible: false,
+  },
+  {
+    num: '3',
+    title: 'фиксированная стоимость',
+    text: 'Предлагаем четкий и прозрачный расчет до заключения договора, обеспечивая вам уверенность в планирования бюджета проекта',
+  },
+  {
+    num: '4',
+    title: 'Гарантия',
+    text: 'Предоставляем 3 года гарантии на все работы и материалы премиум-класса.  Предлагаем возможность страхования рисков и банковское страхование вашего строительства, включая расширенную гарантию до 15 лет',
+  },
+  {
+    title: '',
+    text: '',
+    visible: false,
+  },
+  {
+    num: '5',
+    title: 'контроль качества',
+    text: 'Гарантируем проверку качества на всех этапах выполнения кровельных работ экспертом, включая экспертную проверку и сопровождение специалистами службы качества производителя материала',
+  },
+  {
+    num: '6',
+    title: 'профессионализм',
+    text: 'Наша команда владеет передовыми технологиями и профессиональным оборудованием, состоит из аттестованных специалистов с 20-ти летним опытом работы в отрасли',
+  },
+];
+---
+
+<div class="bg-[#F4F3F4] mb-10 pt-16 sm:pt-32">
+  <div class="container relative">
+    <Image
+      src={import('../assets/benefits-mask.png')}
+      class="absolute max-w-[375px] md:max-w-[770px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      alt="benefits"
+    />
+    <div class="flex-stack items-start sm:items-center mb-5 md:mb-[50px]">
+      <h2 class="section-title">Почему выбирают нас?</h2>
+      <a href="#" class="text-[#9EA1AB] font-semibold text-nowrap shrink-0">[ Преимущества ]</a>
+    </div>
+    <div class="grid grid-cols sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 z-10 relative">
+      {
+        benefitsItems.map((item, index) => (
+          <div
+            class={`bg-white p-6 rounded-lg 
+            ${index === 3 && 'mb-40 sm:mb-0'}
+            ${item.visible === false && 'bg-transparent invisible hidden xl:block'}`}>
+            <span class="grid w-12 h-12 place-content-center place-items-center rounded-full border border-[#F7CDCD] mb-5 text-[#D50808] font-bold">
+              0{item.num}
+            </span>
+            <h3 class="uppercase font-bold mb-3">{item.title}</h3>
+            <p class="text-[#656A7C] font-semibold">{item.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="bg-[#2E3037] clip sm:-mt-[250px]">
+    <div class="container mt-14 pt-14 pb-10 sm:pb-[120px] sm:pt-[460px]">
+      <div class="flex-stack flex-col gap-10 sm:flex-row items-start sm:items-end">
+        <a href="#" class="text-white self-end sm:self-auto font-semibold text-nowrap">[ О нас ]</a>
+        <h2 class="text-white text-lg md:text-3xl max-w-[840px] font-extrabold uppercase">
+          <span class="before:block before:absolute before:-inset-0.5 px-1 before:rounded-md before:bg-primary relative inline-block">
+            <span class="relative text-white">Строительные системы</span>
+          </span> — это компания, объединяющая передовые технологии и эффективное управление строительными проектами.
+        </h2>
+      </div>
+    </div>
+    <Image src={import('../assets/benefits-footer-mask.svg')} class="object-cover h-[40px] sm:h-auto w-full" alt="mask" />
+  </div>
+</div>
+
+<style>
+  .clip {
+    clip-path: polygon(0 55%, 100% 0, 100% 100%, 0% 100%);
+  }
+  @media screen and (max-width: 680px) {
+    .clip {
+      clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+    }
+  }
+</style>

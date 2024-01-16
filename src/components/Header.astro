@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Astronav, MenuIcon, MenuItems, StickyHeader } from 'astro-navbar';
+import { Image } from 'astro:assets';
+
+const menuLinks = [
+  { label: 'Услуги', href: '/#services' },
+  { label: 'Проекты', href: '/projects' },
+  { label: 'Клиенты', href: '/#clients' },
+  { label: 'Новости', href: '/news' },
+];
+---
+
+<StickyHeader class="p-5 sticky bg-white z-30 top-0 transition-all w-full" defaultClass="p-5" activeClass="drop-shadow-md p-5">
+  <div class="container px-0">
+    <Astronav closeOnClick>
+      <div class="flex justify-between items-center w-full">
+        <a href="/" class="flex items-center gap-2 z-[51] relative">
+          <Image src={import('../assets/logo.png')} quality={100} class="size-9 invert" alt="logo" />
+          <span class="text-sm sm:text-base font-extrabold leading-5 uppercase tracking-wide">Строительные <br /> системы</span>
+        </a>
+
+        <MenuItems
+          class="hidden fixed z-2 top-0 left-0 z-50 bg-white w-full h-dvh lg:h-auto lg:relative lg:w-auto lg:flex flex-auto justify-start lg:pl-14">
+          <ul class="w-full pt-32 justify-center text-center lg:w-aut lg:pt-0 gap-5 lg:justify-start flex flex-col lg:flex-row xl:gap-14">
+            {
+              menuLinks.map((item) => (
+                <li class="text-2xl md:text-xl lg:text-base font-bold hover:text-primary transition-colors">
+                  <a href={item.href}>{item.label}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </MenuItems>
+
+        <div class="header-contacts z-50 flex items-start gap-3 xl:gap-8">
+          <a href="#" class="hidden lg:flex items-center gap-2 hover:text-primary transition-colors">
+            <span class="grid w-6 h-6 rounded-full place-items-center place-content-center bg-[#2E3037] shrink-0">
+              <Icon name="phone" class="w-[18px] h-[18px] text-white" />
+            </span>
+            <span class="font-bold">+7 (902) 942 37 32</span>
+          </a>
+          <div class="flex flex-col">
+            <a href="#" class="text-sm sm:text-base flex items-center gap-2 hover:text-primary transition-colors">
+              <span class="hidden sm:grid w-6 h-6 rounded-full place-items-center place-content-center bg-primary shrink-0">
+                <Icon name="phone" class="w-[18px] h-[18px] text-white" />
+              </span>
+              <span class="font-bold">+7 (902) 942 37 32</span>
+            </a>
+            <button class="text-[#4D4E52] self-end border-b border-dashed border-[#4D4E52] text-sm">Заказать звонок</button>
+          </div>
+          <div class="block lg:hidden">
+            <MenuIcon class="size-7 text-[#2E3037]" />
+          </div>
+        </div>
+      </div>
+    </Astronav>
+  </div>
+</StickyHeader>

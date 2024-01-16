@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .button {
+    @apply bg-primary hover:bg-primary/80 text-white uppercase font-bold py-3 px-7 rounded;
+  }
+  .flex-stack {
+    @apply flex items-center justify-between;
+  }
+  .section-title {
+    @apply text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase text-[#282E35];
+  }
+}
+
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+.react-player__preview {
+  border-radius: 8px;
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.c-breadcrumbs__crumbs {
+  display: flex;
+  align-items: center;
+}
+
+.c-breadcrumbs__crumb {
+  @apply capitalize relative;
+}
+
+.c-breadcrumbs__crumb {
+  @apply text-[#848896];
+}
+
+.c-breadcrumbs__crumb:last-child {
+  @apply text-[#202228];
+}
+
+.c-breadcrumbs__crumb:not(:last-child) {
+  @apply after:content-['->'] after:pl-2;
+}
+
+.c-breadcrumbs__crumbs:where(.has-no-separators) {
+  column-gap: 10px !important;
+}
