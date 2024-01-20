@@ -4,7 +4,7 @@
 
 @layer components {
   .button {
-    @apply bg-primary hover:bg-primary/80 text-white uppercase font-bold py-3 px-7 rounded;
+    @apply bg-primary hover:bg-secondary transition-colors text-white uppercase font-bold py-3 px-7 rounded;
   }
   .flex-stack {
     @apply flex items-center justify-between;

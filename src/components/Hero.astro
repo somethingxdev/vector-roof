@@ -4,9 +4,7 @@ import myBackground from '../assets/hero-background.png';
 const optimizedBackgroundPC = await getImage({ src: myBackground, format: 'webp', quality: 100 });
 ---
 
-<div
-  class="wrapper bg-no-repeat h-[700px] sm:h-[800] bg-cover xl:bg-contain bg-center mb-12"
-  style={`background-image: url(${optimizedBackgroundPC.src});`}>
+<div class="wrapper bg-no-repeat h-[700px] sm:h-[800] bg-cover bg-center mb-12" style={`background-image: url(${optimizedBackgroundPC.src});`}>
   <div class="container pb-[250px]">
     <div class="flex justify-center items-center gap-3 pt-12 pb-12 md:pb-14">
       <Image src={import('../assets/hero-icon.svg')} class="size-20" quality={100} alt="hero" />
