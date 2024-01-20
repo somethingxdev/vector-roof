@@ -61,7 +61,7 @@ const objects = [
               <span class="text-[#56585E] block mb-1">Местоположение</span>
               <h2 class="text-sm sm:text-xl flex items-center gap-2 font-bold uppercase">
                 <Icon name="map" class="text-primary size-5 sm:size-6" />
-                 Академгородок д. 4, секция 6
+                Академгородок д. 4, секция 6
               </h2>
             </div>
             <div class="flex gap-5 pb-10 sm:pb-8 sm:border-b sm:border-[#D6D6D6]">
@@ -161,7 +161,7 @@ const objects = [
                 <div class="flex items-center mt-auto">
                   <span
                     class="text-[#202228]
-                    font-semibold relative after:absolute after:top-1/2 after:ml-1 after:-translate-y-1/2 after:h-[14px] after:w-[2px]
+                    font-semibold relative after:absolute after:top-1/2 after:ml-1 after:-translate-y-1/2 after:h-[14px] after:w-[1px]
                      after:bg-[#202228] pr-1 mr-2"
                     >Мария Н.</span
                   >
@@ -187,19 +187,19 @@ const objects = [
             <Image src={import('../assets/projects/1.png')} alt="ЖК Светлогорский" />
             <span class="font-bold uppercase text-center">ЖК Светлогорский</span>
             <p class="text-[#848898] text-center">Красноярск, пер Светлогорский, д 12</p>
-            <a href="#" class="button text-[#1D1D21] mt-auto bg-[#F4F3F4] hover:text-white transition-colors">подробнее</a>
+            <a href="#" class="button text-[#1D1D21] hover:bg-primary mt-auto bg-[#F4F3F4] hover:text-white transition-colors">подробнее</a>
           </li>
           <li class="flex flex-col items-center bg-white gap-5 p-5 rounded-lg">
             <Image src={import('../assets/projects/2.png')} alt="ЖК Светлогорский" />
             <span class="font-bold uppercase text-center">Красноярский краевой онкологический диспансер</span>
             <p class="text-[#848898] text-center">Красноярск, ул 1-я Смоленская, д 16,</p>
-            <a href="#" class="button text-[#1D1D21] mt-auto bg-[#F4F3F4] hover:text-white transition-colors">подробнее</a>
+            <a href="#" class="button text-[#1D1D21] hover:bg-primary mt-auto bg-[#F4F3F4] hover:text-white transition-colors">подробнее</a>
           </li>
           <li class="flex flex-col items-center bg-white gap-5 p-5 rounded-lg">
             <Image src={import('../assets/projects/1.png')} alt="ЖК Светлогорский" />
             <span class="font-bold uppercase text-center">Академгородок д. 4, секция 6</span>
             <p class="text-[#848898] text-center">Красноярск, ул Академгородок, д 54</p>
-            <a href="#" class="button text-[#1D1D21] mt-auto bg-[#F4F3F4] hover:text-white transition-colors">подробнее</a>
+            <a href="#" class="button text-[#1D1D21] hover:bg-primary mt-auto bg-[#F4F3F4] hover:text-white transition-colors">подробнее</a>
           </li>
         </div>
         <div class="text-end w-full sm:auto">
@@ -231,7 +231,7 @@ const objects = [
 </style>
 
 <script>
-  import EmblaCarousel from 'embla-carousel'
+  import EmblaCarousel from 'embla-carousel';
   const rootNode = document.querySelector('.embla') as HTMLElement;
   const viewportNode = rootNode.querySelector('.embla__viewport') as HTMLElement;
 
@@ -241,6 +241,9 @@ const objects = [
 
   const embla = EmblaCarousel(viewportNode);
 
+  // @ts-ignore
   prevButtonNode.addEventListener('click', embla.scrollPrev, false);
+
+  // @ts-ignore
   nextButtonNode.addEventListener('click', embla.scrollNext, false);
 </script>

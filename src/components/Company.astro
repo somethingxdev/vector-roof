@@ -4,12 +4,13 @@ import Video from './Video';
 ---
 
 <div class="container py-14 sm:py-20">
-  <div class="flex flex-col md:flex-row justify-between gap-10">
+  <div class="flex flex-col lg:flex-row justify-between gap-10">
     <div class="flex flex-col gap-5 w-full">
-      <Video client:only="react" />
+      <Image src={import('../assets/company-poster.png')} quality={100} alt="logo" />
       <div class="flex items-center bg-[#F4F3F4] p-3 sm:p-5 rounded-xl">
-        <Image src={import('../assets/company-logo.png')} quality={100} class="max-w-[80px] sm:max-w-full" alt="logo" />
-        <p class="uppercase text-[12px] sm:text-base md:text-base xl:text-lg font-extrabold pl-5 ml-5 md:ml-7 tracking-tight border-l border-white">
+        <Image src={import('../assets/company-logo.svg')} quality={100} class="max-w-[80px] sm:max-w-full" alt="logo" />
+        <p
+          class="uppercase text-[12px] sm:text-base md:text-[16px] xl:text-[18px] font-extrabold pl-5 ml-5 md:ml-7 leading-[21px] border-l border-white">
           получен сертификат мастерства, <br /> подтверждающий качество работы компании
         </p>
       </div>

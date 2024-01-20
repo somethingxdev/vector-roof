@@ -8,7 +8,7 @@ import { Image } from 'astro:assets';
     <div class="flex flex-col md:flex-row items-start justify-between gap-5 pb-10 md:pb-20 border-b border-[#474951]">
       <a href="/" class="flex shrink-0 items-center gap-3 z-[51] mb-10 md:mb-0 relative">
         <Image src={import('../assets/logo.png')} quality={100} class="size-9" alt="logo" />
-        <span class="text-sm text-[#F9F9F9] sm:text-base font-extrabold leading-5 uppercase tracking-wide">Строительные <br /> системы</span>
+        <span class="text-sm text-[#F9F9F9] sm:text-[16px] font-extrabold leading-[18px] uppercase tracking-wide">Строительные <br /> системы</span>
       </a>
       <div class="md:self-center mb-10 md:mb-0">
         <h3 class="text-white mb-3 md:mb-6 text-sm">Услуги</h3>
@@ -29,23 +29,23 @@ import { Image } from 'astro:assets';
         </div>
       </div>
 
-      <ul class="flex flex-wrap md:flex-col md:flex-nowrap gap-5 text-[#F9F9F9] text-sm">
+      <ul class="flex max-w-[191px] pt-10 flex-wrap md:flex-col md:flex-nowrap gap-5 text-[#F9F9F9] text-sm">
         <li>
           <a href="tel:89029423732" class="flex items-center gap-2 hover:text-primary transition-colors">
             <Icon name="phone" class="size-6" />
-             +7 (902) 942-37-32
+            +7 (902) 942-37-32
           </a>
         </li>
         <li>
           <a href="tel:89029423732" class="flex items-center gap-2 hover:text-primary transition-colors">
             <Icon name="phone" class="size-6" />
-             +7 (902) 942-37-32
+            +7 (902) 942-37-32
           </a>
         </li>
         <li>
           <a href="mailto:s.sistem.a@mail.ru" class="flex items-center gap-2 hover:text-primary transition-colors">
             <Icon name="email" class="size-6" />
-             s.sistem.a@mail.ru
+            s.sistem.a@mail.ru
           </a>
         </li>
         <li>
@@ -54,15 +54,19 @@ import { Image } from 'astro:assets';
             target="_blank"
             class="flex items-center gap-2 hover:text-primary transition-colors">
             <Icon name="map" class="size-6" />
-             г. Красноярск, Мусоргского, 3, оф. 302
+            г. Красноярск, Мусоргского, 3, оф. 302
           </a>
         </li>
       </ul>
     </div>
-    <div class="py-8 flex-stack flex-col md:flex-row items-start gap-5 text-[#9294A2] text-[12px]">
-      <a href="#">Политика конфиденциальности</a>
-      <p>© «Строительные системы», Кровельные и гидроизоляционные работы в Красноярском крае</p>
-      <span>2024</span>
+    <div class="py-8 flex flex-col md:flex-row items-start gap-5 text-[#9294A2] text-[12px]">
+      <div class="flex items-center gap-[10px] pr-[60px]">
+        <a href="#">Разработка сайта</a>
+        <span class="w-[1px] h-[12px] bg-[#9294A2]"></span>
+        <a href="#">Политика конфиденциальности</a>
+      </div>
+      <p class="mr-auto">© «Строительные системы», Кровельные и гидроизоляционные работы в Красноярском крае</p>
+      <span>2024 г</span>
     </div>
   </div>
 </footer>
