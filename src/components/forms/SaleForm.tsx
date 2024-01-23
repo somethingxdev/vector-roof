@@ -1,11 +1,9 @@
-import React from 'react';
-
 const SaleForm = () => {
   return (
-    <form>
+    <form action="/contact.json" method='post'>
       <fieldset className="flex flex-col w-full lg:flex-row items-center gap-4 mb-5">
-        <input type="text" placeholder="Имя" className="input h-[52px] lg:h-[44px] rounded border-none w-full lg:w-auto xl:w-[350px]" />
-        <input type="email" placeholder="Email" className="input h-[52px] lg:h-[44px] rounded border-none w-full lg:w-auto  xl:w-[350px]" />
+        <input type="text" name='message' placeholder="Имя" className="input h-[52px] lg:h-[44px] rounded border-none w-full lg:w-auto xl:w-[350px]" />
+        <input type="email" name='email' placeholder="Email" className="input h-[52px] lg:h-[44px] rounded border-none w-full lg:w-auto  xl:w-[350px]" />
         <button className="button lg:bg-[#2E3037] lg:py-2.5 lg:px-4 w-full lg:w-auto">Оставить заявку</button>
       </fieldset>
       <label className="flex items-center text-[#585A5F] lg:text-white gap-2 cursor-pointer">
