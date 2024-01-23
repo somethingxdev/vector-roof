@@ -3,16 +3,16 @@ import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 ---
 
-<footer class="bg-[#2E3037] pt-12 md:pt-24">
+<footer class="bg-[#2E3037] pt-12 lg:pt-24">
   <div class="container">
-    <div class="flex flex-col md:flex-row items-start justify-between gap-5 pb-10 md:pb-20 border-b border-[#474951]">
-      <a href="/" class="flex shrink-0 items-center gap-3 z-[51] mb-10 md:mb-0 relative">
+    <div class="flex flex-col lg:flex-row items-start justify-between gap-5 pb-10 lg:pb-20 border-b border-[#474951]">
+      <a href="/" class="flex shrink-0 items-center gap-3 z-[51] mb-10 lg:mb-0 relative">
         <Image src={import('../assets/logo.png')} quality={100} class="size-9" alt="logo" />
         <span class="text-sm text-[#F9F9F9] sm:text-[16px] font-extrabold leading-[18px] uppercase tracking-wide">Строительные <br /> системы</span>
       </a>
-      <div class="md:self-center mb-10 md:mb-0">
-        <h3 class="text-white mb-3 md:mb-6 text-sm">Услуги</h3>
-        <ul class="grid md:grid-cols-2 mb-7 md:mb-10 gap-x-10 gap-y-3 text-[#A6B1B9] text-sm">
+      <div class="lg:self-center lg:mb-10">
+        <h3 class="text-white mb-3 lg:mb-6 text-sm">Услуги</h3>
+        <ul class="grid lg:grid-cols-2 mb-7 lg:mb-10 gap-x-10 gap-y-3 text-[#A6B1B9] text-sm">
           <li><a href="#" class="hover:text-primary transition-colors">Водосточная система</a></li>
           <li><a href="#" class="hover:text-primary transition-colors">Монтаж парапетов кровли</a></li>
           <li><a href="#" class="hover:text-primary transition-colors">Направляемая кровля</a></li>
@@ -22,14 +22,14 @@ import { Image } from 'astro:assets';
           <li><a href="#" class="hover:text-primary transition-colors">Гидроизоляция</a></li>
           <li><a href="#" class="hover:text-primary transition-colors">Монтаж фасадных систем</a></li>
         </ul>
-        <div class="flex gap-16 text-[#F9F9F9] text-sm">
+        <div class="flex gap-10 sm:gap-16 text-[#F9F9F9] text-sm">
           <a href="/news" class="hover:text-primary transition-colors">Новости</a>
           <a href="/projects" class="hover:text-primary transition-colors">Проекты</a>
           <a href="/company" class="hover:text-primary transition-colors text-nowrap">О компании</a>
         </div>
       </div>
 
-      <ul class="flex max-w-[191px] pt-10 flex-wrap md:flex-col md:flex-nowrap gap-5 text-[#F9F9F9] text-sm">
+      <ul class="flex max-w-[191px] pt-10 flex-wrap lg:flex-col lg:flex-nowrap gap-5 text-[#F9F9F9] text-sm">
         <li>
           <a href="tel:89029423732" class="flex items-center gap-2 hover:text-primary transition-colors">
             <Icon name="phone" class="size-6" />
@@ -59,10 +59,10 @@ import { Image } from 'astro:assets';
         </li>
       </ul>
     </div>
-    <div class="py-8 flex flex-col md:flex-row items-start gap-5 text-[#9294A2] text-[12px]">
-      <div class="flex items-center gap-[10px] pr-[60px]">
+    <div class="py-8 flex flex-col lg:flex-row items-start gap-5 text-[#9294A2] text-[12px]">
+      <div class="flex flex-col xs:flex-row items-start xs:items-center gap-[10px] pr-[60px]">
         <a href="#">Разработка сайта</a>
-        <span class="w-[1px] h-[12px] bg-[#9294A2]"></span>
+        <span class="w-[1px] h-[12px] bg-[#9294A2] hidden xs:hidden"></span>
         <a href="#">Политика конфиденциальности</a>
       </div>
       <p class="mr-auto">© «Строительные системы», Кровельные и гидроизоляционные работы в Красноярском крае</p>

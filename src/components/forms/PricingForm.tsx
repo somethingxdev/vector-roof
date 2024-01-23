@@ -18,7 +18,7 @@ const SaleForm = () => {
           <textarea placeholder="Краткое описание задачи" className="input resize-none h-[80px] rounded border-none w-full"></textarea>
         </fieldset>
       </div>
-      <div className="flex-stack items-start">
+      <div className="flex-stack flex-col xs:flex-row gap-2 items-start mb-2">
         <label htmlFor="formId" className="flex items-center cursor-pointer hover:text-primary transition-colors gap-2 text-sm text-[#585A5F]">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -29,7 +29,7 @@ const SaleForm = () => {
           {selectedFile ? selectedFile.name : 'Прикрепить файл'}
           <input type="file" id="formId" hidden onChange={handleFileChange} />
         </label>
-        <button className="button hover:bg-[#2E3037] py-4 lg:py-2.5 lg:px-4 w-full lg:w-auto">Оставить заявку</button>
+        <button className="button hover:bg-[#2E3037] w-full xs:w-auto px-2 sm:px-7 text-sm sm:text-base ">Оставить заявку</button>
       </div>
       <label className="flex items-center text-[#585A5F] lg:text-white gap-2 cursor-pointer">
         <input type="checkbox" className="form-checkbox  rounded-sm border border-[#D5D5D5] text-primary" />
