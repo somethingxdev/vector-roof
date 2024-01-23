@@ -6,12 +6,13 @@ import icon from 'astro-icon'
 import { defineConfig } from 'astro/config'
 // https://astro.build/config
 export default defineConfig({
+  output: 'server',
+  adapter: vercel(),
   integrations: [
     tailwind({
       applyBaseStyles: false,
     }),
-    output: 'server',
-    adapter: vercel(),
+
     react(),
     sitemap(),
     icon(),
