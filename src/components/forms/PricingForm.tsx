@@ -1,21 +1,98 @@
-import React, { useState } from 'react';
-
+import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import toast, { Toaster } from 'react-hot-toast'
+type FormInput = {
+  name: string;
+  email: string;
+  message: string;
+  file: string;
+};
 const SaleForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+    reset,
+  } = useForm<FormInput>();
   const [selectedFile, setSelectedFile] = useState(null);
-
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
+  const [content, setContent] = React.useState(null);
+  const [filename, setFilename] = React.useState('');
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
     setSelectedFile(file);
+
+    const reader = new FileReader();
+    const files = e.target.files;
+
+    reader.onload = (r) => {
+      setContent(r.target.result.toString());
+      setFilename(files[0].name);
+    };
+
+    reader.readAsDataURL(files[0]);
   };
+
+  async function onSubmit(formData: FormInput, e) {
+    const base64Content = content.split(',')[1];
+    try {
+      e.preventDefault();
+      await fetch('/api/sendEmailFooter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: 'onboarding@resend.dev',
+          to: 'a.s.yarmoluk@gmail.com',
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          content: base64Content,
+          filename,
+        }),
+      }).then(() =>
+        toast.success('Письмо успешно отправлено!', {
+          duration: 3000,
+          position: 'bottom-center',
+        }),
+      );
+    } catch {
+      toast.error('Упс, что-то пошло не так! Попробуйте ещё раз', {
+        duration: 3000,
+        position: 'bottom-center',
+      });
+    }
+    reset();
+  }
+
   return (
-    <form className=" max-w-[750px]">
+    <form className=" max-w-[750px]" onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col md:flex-row items-end gap-5">
         <fieldset className="w-full mb-1">
           <div className="flex items-center gap-3 mb-2">
-            <input type="text" placeholder="Имя" className="input h-[52px] lg:h-[44px] rounded border-none w-full" />
-            <input type="email" placeholder="Email" className="input h-[52px] lg:h-[44px] rounded border-none w-full" />
+            <input
+              type="text"
+              {...register('name', { required: true, maxLength: 30 })}
+              placeholder="Имя"
+              className="input h-[52px] focus:ring-2 focus:ring-primary lg:h-[44px] rounded border-none w-full"
+            />
+            <input
+              type="email"
+              {...register('email', {
+                required: true,
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: 'Entered value does not match email format',
+                },
+              })}
+              placeholder="Email"
+              className="input h-[52px] lg:h-[44px] rounded border-none w-full"
+            />
           </div>
-          <textarea placeholder="Краткое описание задачи" className="input resize-none h-[80px] rounded border-none w-full"></textarea>
+          <textarea
+            placeholder="Краткое описание задачи"
+            {...register('message', { required: true, maxLength: 300 })}
+            className="input resize-none h-[80px] focus:ring-2 focus:ring-primary rounded border-none w-full"></textarea>
         </fieldset>
       </div>
       <div className="flex-stack flex-col xs:flex-row gap-2 items-start mb-2">
@@ -27,14 +104,17 @@ const SaleForm = () => {
             />
           </svg>
           {selectedFile ? selectedFile.name : 'Прикрепить файл'}
-          <input type="file" id="formId" hidden onChange={handleFileChange} />
+          <input type="file" id="formId" {...register('file')} hidden onChange={handleFileChange} />
         </label>
-        <button className="button hover:bg-[#2E3037] w-full xs:w-auto px-2 sm:px-7 text-sm sm:text-base ">Оставить заявку</button>
+        <button className="button hover:bg-[#2E3037] w-full xs:w-auto px-2 sm:px-7 text-sm sm:text-base" disabled={isSubmitting}>
+          Оставить заявку
+        </button>
       </div>
       <label className="flex items-center text-[#585A5F] lg:text-white gap-2 cursor-pointer">
         <input type="checkbox" className="form-checkbox  rounded-sm border border-[#D5D5D5] text-primary" />
         <span className="text-[12px] text-[#585A5F]">Я согласен с политикой конфиденциальности сайта</span>
       </label>
+      <Toaster />
     </form>
   );
 };

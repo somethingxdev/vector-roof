@@ -1,0 +1,48 @@
+---
+import { Breadcrumbs } from 'astro-breadcrumbs'
+import 'astro-breadcrumbs/breadcrumbs.css'
+import { Image } from 'astro:assets'
+import Layout from '../../layouts/Layout.astro'
+import { fetchAPI } from '../../wordpress'
+const customCrumbs = [
+  { text: 'Главная', href: '/' },
+  { text: 'Новости', href: '/news' },
+];
+
+const { slug } = Astro.params;
+
+const data = await fetchAPI({
+  query: `
+  query posts {
+    posts {
+      nodes { slug title  content(format: RENDERED)  excerpt featuredImage {  node {  mediaItemUrl }  } }
+    }
+  } 
+  `,
+});
+
+const currentPost = data.posts.nodes.find((item) => item.slug === slug);
+---
+
+<Layout title="Blog post">
+  <div class="bg-[#F0F0F0] py-9">
+    <div class="container">
+      <div class="mb-10 sm:mb-24">
+        <Breadcrumbs crumbs={customCrumbs} />
+      </div>
+      <div class="flex-stack flex-col xs:flex-row items-start sm:items-center gap-3 mb-16">
+        <h2 class="section-title">Новости</h2>
+        <a href="#" class="text-[#9EA1AB] -order-1 self-end xs:order-1 xs:self-center font-semibold text-nowrap shrink-0"> [ О самом важном ]</a>
+      </div>
+      <div class="flex flex-col lg:flex-row items-start gap-10">
+        <div class="sm:max-w-[290px] shrink-0">
+          <Image src={currentPost.featuredImage.node.mediaItemUrl} width={294} height={238} class="rounded-lg" alt="project" />
+        </div>
+        <article class="prose prose-sm max-w-full">
+          <h1 class="text-xl uppercase">{currentPost.title}</h1>
+          <Fragment set:html={currentPost.content} />
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>

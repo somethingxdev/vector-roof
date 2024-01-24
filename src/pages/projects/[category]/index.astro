@@ -3,9 +3,9 @@ import { Breadcrumbs } from 'astro-breadcrumbs'
 import 'astro-breadcrumbs/breadcrumbs.css'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
-import Pricing from '../../components/Pricing.astro'
-import Layout from '../../layouts/Layout.astro'
-import { fetchAPI } from '../../wordpress'
+import Pricing from '../../../components/Pricing.astro'
+import Layout from '../../../layouts/Layout.astro'
+import { fetchAPI } from '../../../wordpress'
 const customCrumbs = [
   {
     text: 'Главная',
@@ -29,23 +29,18 @@ const data = await fetchAPI({
         featuredImage {
           node { mediaItemUrl }
         }
+        categories {
+        nodes {  slug  name  } }
       }
     }
   } 
   `,
 });
 
-const projects = data.projects.nodes;
-const categories = data.categories.nodes.filter((category) => category.slug !== 'без-рубрики');
+const { category } = Astro.params;
 
-const navItems = [
-  { url: '/', title: 'наплавляемая кровля' },
-  { url: '/', title: 'Кровля из ПВХ мембраны' },
-  { url: '/', title: 'Монтаж металлоконструкций' },
-  { url: '/', title: 'Скатная кровля' },
-  { url: '/', title: 'Монтаж фасадных систем' },
-  { url: '/', title: 'Инженерная гидроизоляция' },
-];
+const projects = data.projects.nodes.filter(item => item.categories.nodes[0].slug === category);
+const categories = data.categories.nodes.filter((category) => category.slug !== 'без-рубрики');
 ---
 
 <Layout title="title">
@@ -67,12 +62,15 @@ const navItems = [
       <nav class="mb-10 sm:mb-14">
         <ul class="grid grid-cols-2 gap-2 items-stretch sm:flex flex-wrap">
           {
-            categories.map((category) => (
+            categories.map((item) => (
               <li>
                 <a
-                  href={`projects/${category.slug}`}
-                  class="py-2 px-3 sm:py-5 sm:px-7 h-full flex items-center place-items-start  text-[12px] sm:text-base bg-white rounded font-bold uppercase hover:bg-primary hover:text-white transition-colors">
-                  {category.name}
+                  href={item.slug}
+                  class={`py-2 px-3 sm:py-5 sm:px-7 h-full flex items-center gap-2
+                  text-[12px] sm:text-base rounded font-bold uppercase hover:bg-primary 
+                  hover:text-white transition-colors ${item.slug == category ? 'bg-primary text-white' : 'bg-white'}`}>
+                  {item.name}
+                  {item.slug == category && <Icon name="arrow-right" class="size-5" />}
                 </a>
               </li>
             ))

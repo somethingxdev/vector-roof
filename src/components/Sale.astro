@@ -1,6 +1,7 @@
 ---
 import { getImage, Image } from 'astro:assets'
 import myBackground from '../assets/sale-bg.png'
+import SaleForm from './forms/SaleForm'
 const saleBG = await getImage({ src: myBackground, format: 'webp', quality: 100 });
 ---
 
@@ -9,19 +10,9 @@ const saleBG = await getImage({ src: myBackground, format: 'webp', quality: 100 
     <div class="py-14 lg:py-36">
       <h2 class="section-title text-[#0A0B0F] mb-2">Хотите получить скидку на объем работ?</h2>
       <p class="text-[#848896] text-lg mb-8 sm:mb-10">Оставьте ваши контакты и мы свяжемся с вами в ближайшее время</p>
-      <!-- <SaleForm client:load /> -->
+      <SaleForm client:load />
     </div>
   </div>
-  <form action="/contact.json" method="POST">
-    <div>
-      <label for="email"><strong>Email</strong></label>
-      <input type="email" name="email" id="email" required minlength="7" maxlength="55" placeholder="uwi@soft.job 🚀" />
-    </div>
-    <div>
-      <label for="message"><strong>Message</strong></label>
-      <textarea name="message" id="message" required maxlength="700" placeholder="job offer 🚀"></textarea>
-    </div>
-    <button>send message</button>
-  </form>
+
   <Image src={import('../assets/sale-mask.png')} class="sm:hidden absolute bottom-0 left-0 w-full h-full z-0" alt="mask" />
 </div>
