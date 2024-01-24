@@ -36,7 +36,7 @@ const SaleForm = () => {
     const base64Content = content.split(',')[1];
     try {
       e.preventDefault();
-      await fetch('/api/sendEmailFooter', {
+      const res = await fetch('/api/sendEmailFooter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,12 +50,18 @@ const SaleForm = () => {
           content: base64Content,
           filename,
         }),
-      }).then(() =>
+      });
+      if (!res.ok) {
+        toast.error('Упс, что-то пошло не так Попробуйте ещё раз', {
+          duration: 3000,
+          position: 'bottom-center',
+        });
+      } else {
         toast.success('Письмо успешно отправлено!', {
           duration: 3000,
           position: 'bottom-center',
-        }),
-      );
+        });
+      }
     } catch {
       toast.error('Упс, что-то пошло не так! Попробуйте ещё раз', {
         duration: 3000,

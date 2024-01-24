@@ -17,7 +17,7 @@ const SaleForm = () => {
   async function onSubmit(formData: FormInput, e) {
     try {
       e.preventDefault();
-      await fetch('/api/sendEmail', {
+      const res = await fetch('/api/sendEmail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -29,17 +29,20 @@ const SaleForm = () => {
           email: formData.email,
           message: 'Подана заявка с формы',
         }),
-      }).then(() =>
+      });
+      if (!res.ok) {
+        toast.error('Упс, что-то пошло не так Попробуйте ещё раз', {
+          duration: 3000,
+          position: 'bottom-center',
+        });
+      } else {
         toast.success('Письмо успешно отправлено!', {
           duration: 3000,
           position: 'bottom-center',
-        }),
-      );
-    } catch {
-      toast.error('Упс, что-то пошло не так! Попробуйте ещё раз', {
-        duration: 3000,
-        position: 'bottom-center',
-      });
+        });
+      }
+    } catch (error) {
+      console.log(error);
     }
     reset();
   }
