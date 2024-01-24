@@ -24,7 +24,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
       subject: `${email} ${message.slice(0, 25)}`,
     });
 
-    return redirect('/', 307);
+    return redirect('/', 300);
   } catch (error) {
     return new Response(null, { status: 400 });
   }
