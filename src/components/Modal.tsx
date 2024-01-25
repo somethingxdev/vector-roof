@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
-import CallbackForm from '../components/forms/CallBackForm'
+import CallbackForm from '../components/forms/CallbackForm'
 export default function MyModal() {
   let [isOpen, setIsOpen] = useState(false);
 
