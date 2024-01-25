@@ -1,8 +1,8 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { Astronav, MenuIcon, MenuItems, StickyHeader } from 'astro-navbar';
-import { Image } from 'astro:assets';
-
+import { Icon } from 'astro-icon/components'
+import { Astronav, MenuIcon, MenuItems, StickyHeader } from 'astro-navbar'
+import { Image } from 'astro:assets'
+import Modal from '../components/Modal'
 const menuLinks = [
   { label: 'Услуги', href: '/#services' },
   { label: 'Проекты', href: '/projects' },
@@ -34,20 +34,20 @@ const menuLinks = [
         </MenuItems>
 
         <div class="header-contacts z-50 flex items-start gap-3 xl:gap-8">
-          <a href="#" class="hidden lg:flex items-center gap-2 hover:text-primary transition-colors">
+          <a href="tel:+79029423732" class="hidden lg:flex items-center gap-2 hover:text-primary transition-colors">
             <span class="grid w-6 h-6 rounded-full place-items-center place-content-center bg-[#2E3037] shrink-0">
               <Icon name="phone" class="w-[18px] h-[18px] text-white" />
             </span>
             <span class="font-bold">+7 (902) 942 37 32</span>
           </a>
           <div class="flex flex-col">
-            <a href="#" class="text-sm sm:text-base flex items-center gap-2 hover:text-primary transition-colors">
+            <a href="tel:+79029423732" class="text-sm sm:text-base flex items-center gap-2 hover:text-primary transition-colors">
               <span class="hidden sm:grid w-6 h-6 rounded-full place-items-center place-content-center bg-primary shrink-0">
                 <Icon name="phone" class="w-[18px] h-[18px] text-white" />
               </span>
               <span class="font-bold">+7 (902) 942 37 32</span>
             </a>
-            <button class="text-[#4D4E52] self-end border-b border-dashed border-[#4D4E52] text-sm">Заказать звонок</button>
+            <Modal client:load />
           </div>
           <div class="block lg:hidden">
             <MenuIcon class="size-7 text-[#2E3037]" />

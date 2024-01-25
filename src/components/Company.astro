@@ -1,6 +1,5 @@
 ---
-import { Image } from 'astro:assets';
-import Video from './Video';
+import { Image } from 'astro:assets'
 ---
 
 <div class="container py-14 sm:py-20">
@@ -9,7 +8,8 @@ import Video from './Video';
       <Image src={import('../assets/company-poster.png')} quality={100} alt="logo" />
       <div class="flex items-center bg-[#F4F3F4] p-3 sm:p-5 rounded-xl">
         <Image src={import('../assets/company-logo.svg')} quality={100} class="max-w-[80px] sm:max-w-full" alt="logo" />
-        <p class="uppercase text-[12px] sm:text-base lg:text-[16px] xl:text-[18px] font-extrabold pl-5 ml-5 lg:ml-7 leading-[21px] border-l border-white">
+        <p
+          class="uppercase text-[12px] sm:text-base lg:text-[16px] xl:text-[18px] font-extrabold pl-5 ml-5 lg:ml-7 leading-[21px] border-l border-white">
           получен сертификат мастерства, <br /> подтверждающий качество работы компании
         </p>
       </div>
@@ -17,9 +17,12 @@ import Video from './Video';
     </div>
     <div class="-order-1 lg:order-1 lg:max-w-[380px] flex flex-col items-start">
       <h2 class="section-title mb-5 lg:mb-10">О компании</h2>
-      <p class="mb-5 text-[#747882] text-lg">Наша компания работает на строительном ранке с 2003 года и является сертифицированным авторизованным подрядчиком корпорации «ТехноНИКОЛЬ».</p>
+      <p class="mb-5 text-[#747882] text-lg">
+        Наша компания работает на строительном ранке с 2003 года и является сертифицированным авторизованным подрядчиком корпорации «ТехноНИКОЛЬ».
+      </p>
       <p class="text-[#747882] text-lg lg:mb-5">
-        За все время работы мы принимали участие в капитальном строительстве жилых домов, вели работы по капитальному ремонту и реконструкции производственных зданий, выполняя функцию подрядчика.
+        За все время работы мы принимали участие в капитальном строительстве жилых домов, вели работы по капитальному ремонту и реконструкции
+        производственных зданий, выполняя функцию подрядчика.
       </p>
       <a href="#" class="hidden lg:block button mt-auto">Подробнее о компании</a>
     </div>

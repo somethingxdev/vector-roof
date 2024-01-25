@@ -1,36 +1,42 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from 'astro:assets'
 
 const servicesImages = [
   {
     image: import('../assets/services/membran.png'),
     imageHover: import('../assets/services/membran-hover.png'),
     title: 'Кровля из ПВХ мембраны',
+    link: '/projects/category/pvc_membrane_roofing',
   },
   {
     image: import('../assets/services/pitched.png'),
     imageHover: import('../assets/services/pitched-hover.png'),
     title: 'скатная кровля',
+    link: '/projects/category/pitched_roofing',
   },
   {
     image: import('../assets/services/clad.png'),
     imageHover: import('../assets/services/clad-hover.png'),
     title: 'наплавляемая кровля',
+    link: '/projects/category/torch_applied_roofing',
   },
   {
     image: import('../assets/services/facade.png'),
     imageHover: import('../assets/services/facade-hover.png'),
     title: 'монтаж фасадных систем',
+    link: '/projects/category/facade_systems_installation',
   },
   {
     image: import('../assets/services/waterproofing.png'),
     imageHover: import('../assets/services/waterproofing-hover.png'),
     title: 'инженерная гидроизоляция',
+    link: '/projects/category/engineering_waterproofing',
   },
   {
     image: import('../assets/services/metal.png'),
     imageHover: import('../assets/services/metal-hover.png'),
     title: 'монтаж металлоконструкций',
+    link: '/projects/category/metal_installation',
   },
 ];
 ---
@@ -43,7 +49,7 @@ const servicesImages = [
   <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
     {
       servicesImages.map((item) => (
-        <div class="relative group drop-shadow-xl">
+        <a href={item.link} class="relative group drop-shadow-xl">
           <div class="rounded-lg h-auto">
             <Image src={item.image} quality={100} class="group-hover:opacity-0 transition-all h-auto" alt="membran" />
             <Image
@@ -60,7 +66,7 @@ const servicesImages = [
               <h3 class="text-white font-extrabold uppercase group-hover:text-[#202228]">{item.title}</h3>
             </div>
           </div>
-        </div>
+        </a>
       ))
     }
   </div>

@@ -3,9 +3,9 @@ import { Breadcrumbs } from 'astro-breadcrumbs'
 import 'astro-breadcrumbs/breadcrumbs.css'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
-import Pricing from '../../../components/Pricing.astro'
-import Layout from '../../../layouts/Layout.astro'
-import { fetchAPI } from '../../../wordpress'
+import Pricing from '../../../../components/Pricing.astro'
+import Layout from '../../../../layouts/Layout.astro'
+import { fetchAPI } from '../../../../wordpress'
 const customCrumbs = [
   {
     text: 'Главная',
@@ -39,7 +39,7 @@ const data = await fetchAPI({
 
 const { category } = Astro.params;
 
-const projects = data.projects.nodes.filter(item => item.categories.nodes[0].slug === category);
+const projects = data.projects.nodes.filter((item) => item.categories.nodes[0].slug === category);
 const categories = data.categories.nodes.filter((category) => category.slug !== 'без-рубрики');
 ---
 
@@ -79,6 +79,7 @@ const categories = data.categories.nodes.filter((category) => category.slug !== 
       </nav>
 
       <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-5 sm:gap-y-10">
+        {projects.length < 1 && 'Проектов в базе нет'}
         {
           projects.map((project) => (
             <li class="flex flex-col items-center bg-white gap-5 p-5 rounded-lg">
@@ -87,7 +88,9 @@ const categories = data.categories.nodes.filter((category) => category.slug !== 
               <div class="text-[#848898] text-center">
                 <Fragment set:html={project.excerpt} />
               </div>
-              <a href={project.slug} class="button text-[#1D1D21] hover:bg-primary mt-auto bg-[#F4F3F4] hover:text-white transition-colors">
+              <a
+                href={`/projects/${project.slug}`}
+                class="button text-[#1D1D21] hover:bg-primary mt-auto bg-[#F4F3F4] hover:text-white transition-colors">
                 подробнее
               </a>
             </li>

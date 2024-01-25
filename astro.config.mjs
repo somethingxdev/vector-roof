@@ -8,10 +8,24 @@ import { defineConfig } from 'astro/config'
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
+  prefetch: {
+    defaultStrategy: 'viewport',
+  },
+  experimental: {
+    clientPrerender: true,
+  },
   adapter: vercel({
     imageService: true,
   }),
-  integrations: [tailwind({
-    applyBaseStyles: false
-  }), react(), sitemap(), icon()]
+  image: {
+    remotePatterns: [{ protocol: 'https' }],
+  },
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    react(),
+    sitemap(),
+    icon(),
+  ],
 });

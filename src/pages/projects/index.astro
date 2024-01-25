@@ -62,7 +62,7 @@ const navItems = [
              Наплавляемая кровля
           </h3>
         </div>
-        <a href="#" class="text-[#9EA1AB] font-semibold text-nowrap shrink-0 hidden md:block text-end">[ Работы по всей <br /> России ]</a>
+        <span class="text-[#9EA1AB] font-semibold text-nowrap shrink-0 hidden md:block text-end">[ Работы по всей <br /> России ]</span>
       </div>
       <nav class="mb-10 sm:mb-14">
         <ul class="grid grid-cols-2 gap-2 items-stretch sm:flex flex-wrap">
@@ -70,7 +70,7 @@ const navItems = [
             categories.map((category) => (
               <li>
                 <a
-                  href={`projects/${category.slug}`}
+                  href={`/projects/category/${category.slug}`}
                   class="py-2 px-3 sm:py-5 sm:px-7 h-full flex items-center place-items-start  text-[12px] sm:text-base bg-white rounded font-bold uppercase hover:bg-primary hover:text-white transition-colors">
                   {category.name}
                 </a>
@@ -89,7 +89,9 @@ const navItems = [
               <div class="text-[#848898] text-center">
                 <Fragment set:html={project.excerpt} />
               </div>
-              <a href={project.slug} class="button text-[#1D1D21] hover:bg-primary mt-auto bg-[#F4F3F4] hover:text-white transition-colors">
+              <a
+                href={`/projects/${project.slug}`}
+                class="button text-[#1D1D21] hover:bg-primary mt-auto bg-[#F4F3F4] hover:text-white transition-colors">
                 подробнее
               </a>
             </li>

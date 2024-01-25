@@ -1,6 +1,6 @@
 ---
-import { getImage, Image } from 'astro:assets';
-import myBackground from '../assets/hero-background.png';
+import { getImage, Image } from 'astro:assets'
+import myBackground from '../assets/hero-background-jpg.jpg'
 const optimizedBackgroundPC = await getImage({ src: myBackground, format: 'webp', quality: 100 });
 ---
 

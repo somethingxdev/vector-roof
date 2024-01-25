@@ -38,7 +38,7 @@
 }
 
 .c-breadcrumbs__crumb {
-  @apply text-[#848896];
+  @apply text-[#848896] hover:text-primary transition-colors;
 }
 
 .c-breadcrumbs__crumb:last-child {
