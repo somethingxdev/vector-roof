@@ -68,7 +68,7 @@ const SaleForm = () => {
           placeholder="Email"
           className="input h-[52px] lg:h-[44px] focus:ring-1 focus:ring-[#7AD9A0] rounded border-none w-full"
         />
-        <button className="button  disabled:bg-gray-500 lg:py-2.5 lg:px-4 w-full lg:w-auto" disabled={isSubmitting}>
+        <button className="button font-semibold  disabled:bg-gray-500 lg:py-2.5 lg:px-4 w-full lg:w-auto" disabled={isSubmitting}>
           Оставить заявку
         </button>
       </fieldset>
