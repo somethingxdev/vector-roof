@@ -6,7 +6,7 @@ export const POST: APIRoute = async ({ params, request }) => {
   const { name } = await request.json();
   const send = await resend.emails.send({
     from: 'onboarding@resend.dev',
-    to: 'a.s.yarmoluk@gmail.com',
+    to: 'hevnxv19@gmail.com',
     subject: `${name} прислал вам сообщение!`,
     text: 'Заявка с формы',
   });

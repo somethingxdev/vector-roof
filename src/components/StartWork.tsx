@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import CallbackForm from '../components/forms/CallbackForm'
-export default function MyModal() {
+export default function StartWork() {
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -14,14 +14,11 @@ export default function MyModal() {
 
   return (
     <>
-      <button
-        type="button"
-        onClick={openModal}
-        className="text-[#4D4E52] hover:text-primary self-end border-b border-dashed border-[#4D4E52] text-sm">
-        Заказать звонок
+      <button type="button" onClick={openModal} className="button">
+        начать работу
       </button>
 
-      <Transition appear show={isOpen} as={Fragment}>
+      <Transition show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-50" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
@@ -44,9 +41,9 @@ export default function MyModal() {
                 leave="ease-in duration-200"
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95">
-                <Dialog.Panel className="w-full max-w-md transform pt-[80px] pb-[60px] px-[50px] relative overflow-hidden bg-[#F4F3F4] p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-[473px] transform pt-[80px] pb-[60px] px-[50px] relative overflow-hidden bg-[#F4F3F4] p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title as="h3" className="text-2xl lg:text-4xl  font-extrabold uppercase mb-1 text-center text-[#282E35]">
-                    Заказать звонок
+                    Оставить заявку
                   </Dialog.Title>
 
                   <p className="text-[#848896] lg:text-[18px] lg:leading-[21px] text-center mt-2 mb-5">

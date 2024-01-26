@@ -1,6 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
-
 const servicesImages = [
   {
     image: import('../assets/services/membran.png'),
@@ -41,16 +41,16 @@ const servicesImages = [
 ];
 ---
 
-<section class="container pb-14 md:pb-28" id="services">
+<section class="container pb-14 md:pb-28 scroll-mt-24" id="services">
   <div class="flex-stack items-start sm:items-center mb-5 md:mb-[50px] gap-2">
     <h2 class="section-title">Строительные услуги</h2>
-    <a href="#" class="text-[#9EA1AB] font-semibold text-nowrap shrink-0">[ Услуги ]</a>
+    <span class="text-[#9EA1AB] font-semibold text-nowrap shrink-0">[ Услуги ]</ыз>
   </div>
   <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
     {
       servicesImages.map((item) => (
-        <a href={item.link} class="relative group drop-shadow-xl">
-          <div class="rounded-lg h-auto">
+        <a href={item.link} class="relative group rounded-lg h-auto drop-shadow-xl">
+        
             <Image src={item.image} quality={100} class="group-hover:opacity-0 transition-all h-auto" alt="membran" />
             <Image
               src={item.imageHover}
@@ -65,7 +65,10 @@ const servicesImages = [
               </svg>
               <h3 class="text-white font-extrabold uppercase group-hover:text-[#202228]">{item.title}</h3>
             </div>
-          </div>
+            <span class="absolute bg-primary transition-all sm:hidden top-5 right-5 size-8 rounded-full grid place-items-center place-content-center">
+             <Icon name="arrow-right" class="text-white size-5" />
+            </span>
+         
         </a>
       ))
     }
