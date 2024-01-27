@@ -1,5 +1,5 @@
-import type { APIRoute } from 'astro'
-import { Resend } from 'resend'
+import type { APIRoute } from 'astro';
+import { Resend } from 'resend';
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
@@ -9,13 +9,8 @@ export const POST: APIRoute = async ({ params, request }) => {
     from: 'onboarding@resend.dev',
     to: 'hevnxv19@gmail.com',
     subject: `${name} прислал вам сообщение!`,
-    text: message,
-    attachments: [
-      {
-        content,
-        filename,
-      },
-    ],
+    text: message ? message : 'Пользователь не оставил описания задачи',
+    attachments: [{ content: content || 'Контент', filename: filename || 'Пользователь не оставил фотографии' }],
   });
 
   if (send.data) {
