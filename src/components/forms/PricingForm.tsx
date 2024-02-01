@@ -34,6 +34,7 @@ const SaleForm = () => {
         },
         body: JSON.stringify({
           name: formData.name,
+          email: formData.email,
           message: formData.message,
           content: base64Content,
           filename,

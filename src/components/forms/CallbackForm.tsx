@@ -49,12 +49,14 @@ const SaleForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <fieldset className="flex flex-col w-full gap-4 mb-5">
         <input
+          required
           type="text"
           {...register('name', { required: true, maxLength: 30 })}
           placeholder="Имя"
           className="input h-[52px] lg:h-[44px] focus:ring-1 focus:ring-[#7AD9A0] rounded border-none w-full"
         />
         <input
+          required
           type="email"
           {...register('email', {
             required: true,
