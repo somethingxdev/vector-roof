@@ -1,8 +1,8 @@
 ---
-import { Icon } from 'astro-icon/components'
-import { Astronav, MenuIcon, MenuItems, StickyHeader } from 'astro-navbar'
-import { Image } from 'astro:assets'
-import Modal from '../components/Modal'
+import { Icon } from 'astro-icon/components';
+import { Astronav, MenuIcon, MenuItems, StickyHeader } from 'astro-navbar';
+import { Image } from 'astro:assets';
+import Modal from '../components/Modal';
 const menuLinks = [
   { label: 'Услуги', href: '/#services' },
   { label: 'Проекты', href: '/projects' },
@@ -25,7 +25,7 @@ const menuLinks = [
           <ul class="w-full pt-32 justify-center text-center lg:w-aut lg:pt-0 gap-5 lg:justify-start flex flex-col lg:flex-row xl:gap-14">
             {
               menuLinks.map((item) => (
-                <li class="text-2xl md:text-xl lg:text-base font-bold hover:text-primary transition-colors">
+                <li class="text-xl lg:text-base font-bold hover:text-primary transition-colors">
                   <a href={item.href}>{item.label}</a>
                 </li>
               ))
@@ -33,7 +33,7 @@ const menuLinks = [
           </ul>
         </MenuItems>
 
-        <div class="header-contacts z-50 flex items-start gap-3 xl:gap-8">
+        <div class="header-contacts z-50 flex items-center sm:items-start gap-3 xl:gap-8">
           <a href="tel:88002015566" class="hidden lg:flex items-center gap-2 hover:text-primary transition-colors">
             <span class="grid w-6 h-6 rounded-full place-items-center place-content-center bg-[#2E3037] shrink-0">
               <Icon name="phone" class="w-[18px] h-[18px] text-white" />

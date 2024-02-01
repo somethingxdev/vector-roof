@@ -1,5 +1,5 @@
-import { useForm } from 'react-hook-form'
-import toast, { Toaster } from 'react-hot-toast'
+import { useForm } from 'react-hook-form';
+import toast, { Toaster } from 'react-hot-toast';
 type FormInput = {
   name: string;
   email: string;
@@ -23,8 +23,6 @@ const SaleForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'onboarding@resend.dev',
-          to: 'a.s.yarmoluk@gmail.com',
           name: formData.name,
           email: formData.email,
           message: 'Подана заявка с формы',

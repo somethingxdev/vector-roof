@@ -1,6 +1,6 @@
-import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
-import CallbackForm from '../components/forms/CallbackForm'
+import { Dialog, Transition } from '@headlessui/react';
+import { Fragment, useState } from 'react';
+import CallbackForm from '../components/forms/CallbackForm';
 export default function MyModal() {
   let [isOpen, setIsOpen] = useState(false);
 
@@ -17,7 +17,7 @@ export default function MyModal() {
       <button
         type="button"
         onClick={openModal}
-        className="text-[#4D4E52] hover:text-primary self-end border-b border-dashed border-[#4D4E52] text-sm">
+        className="text-[#4D4E52] hidden sm:block hover:text-primary self-end border-b border-dashed border-[#4D4E52] text-sm">
         Заказать звонок
       </button>
 
