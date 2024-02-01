@@ -1,8 +1,8 @@
 ---
-import { getImage, Image } from 'astro:assets'
-import myBackground from '../assets/hero-background.png'
-import StartWork from '../components/StartWork'
-const optimizedBackgroundPC = await getImage({ src: myBackground, format: 'webp', quality: 100 });
+import { getImage, Image } from 'astro:assets';
+import myBackground from '../assets/hero-background-jpg.jpg';
+import StartWork from '../components/StartWork';
+const optimizedBackgroundPC = await getImage({ src: myBackground, format: 'webp', quality: 90 });
 ---
 
 <div class="wrapper bg-no-repeat h-[700px] sm:h-[800] bg-cover bg-center mb-12" style={`background-image: url(${optimizedBackgroundPC.src});`}>
