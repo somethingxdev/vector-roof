@@ -1,6 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components'
-import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
 const servicesImages = [
   {
     image: import('../assets/services/membran.png'),
@@ -50,25 +50,18 @@ const servicesImages = [
     {
       servicesImages.map((item) => (
         <a href={item.link} class="relative group rounded-lg h-auto drop-shadow-xl">
-        
-            <Image src={item.image} quality={100} class="group-hover:opacity-0 transition-all h-auto" alt="membran" />
-            <Image
-              src={item.imageHover}
-              quality={100}
-              class="opacity-0 absolute top-0 left-0 w-full h-full group-hover:opacity-100 transition-all h-auto"
-              alt="membran"
-            />
-            <div class="absolute bottom-5 left-5 flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
-                <path d="M6.26538 1L10.7835 7.02066L6.26538 13.0413" stroke="#F43333" stroke-width="2" />
-                <path d="M11.7732 1L16.2913 7.02066L11.7732 13.0413" stroke="#F43333" stroke-width="2" />
-              </svg>
-              <h3 class="text-white font-extrabold uppercase group-hover:text-[#202228]">{item.title}</h3>
-            </div>
-            <span class="absolute bg-primary transition-all sm:hidden top-5 right-5 size-8 rounded-full grid place-items-center place-content-center">
-             <Icon name="arrow-right" class="text-white size-5" />
-            </span>
-         
+          <Image src={item.image} quality={100} class="group-hover:opacity-0 transition-all h-auto" alt="membran" />
+          <Image src={item.imageHover} quality={100} class="opacity-0 absolute top-0 left-0 w-full h-full group-hover:opacity-100 transition-all" alt="membran" />
+          <div class="absolute bottom-5 left-5 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
+              <path d="M6.26538 1L10.7835 7.02066L6.26538 13.0413" stroke="#F43333" stroke-width="2" />
+              <path d="M11.7732 1L16.2913 7.02066L11.7732 13.0413" stroke="#F43333" stroke-width="2" />
+            </svg>
+            <h3 class="text-white font-extrabold uppercase group-hover:text-[#202228]">{item.title}</h3>
+          </div>
+          <span class="absolute bg-primary transition-all sm:hidden top-5 right-5 size-8 rounded-full grid place-items-center place-content-center">
+            <Icon name="arrow-right" class="text-white size-5" />
+          </span>
         </a>
       ))
     }
