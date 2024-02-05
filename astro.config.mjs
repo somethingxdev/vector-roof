@@ -7,7 +7,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://vektor-roof.ru/', 
   output: 'server',
   prefetch: {
     prefetchAll: true,
