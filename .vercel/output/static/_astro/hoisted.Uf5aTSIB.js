@@ -1,0 +1,1 @@
+import{E as t}from"./embla-carousel.esm.CkmKs9YS.js";import"./hoisted.r9itWOrE.js";import"./index.tZTjid7p.js";const e=document.querySelector(".embla"),r=e.querySelector(".embla__viewport"),l=e.querySelector(".embla__prev"),c=e.querySelector(".embla__next"),o=t(r);l.addEventListener("click",o.scrollPrev,!1);c.addEventListener("click",o.scrollNext,!1);
