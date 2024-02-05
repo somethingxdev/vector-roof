@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 import vercel from '@astrojs/vercel/serverless';
 import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
-
+import robots from 'astro-robots';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://vektor-roof.ru/',
@@ -29,6 +29,7 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
+    robots(),
     react(),
     sitemap(),
     icon(),
