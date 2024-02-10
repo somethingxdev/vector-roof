@@ -9,13 +9,6 @@ import robots from 'astro-robots';
 export default defineConfig({
   site: 'https://vektor-roof.ru/',
   output: 'server',
-  prefetch: {
-    prefetchAll: true,
-    defaultStrategy: 'viewport',
-  },
-  experimental: {
-    clientPrerender: true,
-  },
   adapter: vercel({
     imageService: true,
     webAnalytics: {
